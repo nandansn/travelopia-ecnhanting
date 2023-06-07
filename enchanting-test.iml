@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<module external.linked.project.id="enchanting-test" external.linked.project.path="$MODULE_DIR$/enchanting-test" external.root.project.path="$MODULE_DIR$/enchanting-test" external.system.id="GRADLE" external.system.module.group="com.nanda.travelopia.jet" external.system.module.version="1.0-SNAPSHOT" type="JAVA_MODULE" version="4">
+  <component name="NewModuleRootManager" LANGUAGE_LEVEL="JDK_11" inherit-compiler-output="true">
+    <exclude-output />
+    <content url="file://$MODULE_DIR$/enchanting-test">
+      <excludeFolder url="file://$MODULE_DIR$/enchanting-test/.gradle" />
+      <excludeFolder url="file://$MODULE_DIR$/enchanting-test/build" />
+    </content>
+    <orderEntry type="inheritedJdk" />
+    <orderEntry type="sourceFolder" forTests="false" />
+  </component>
+</module>

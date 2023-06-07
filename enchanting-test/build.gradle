@@ -1,0 +1,36 @@
+plugins {
+    id 'java'
+}
+
+group = 'com.nanda.travelopia.jet'
+version = '1.0-SNAPSHOT'
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+
+    testCompileOnly group: 'org.projectlombok', name: 'lombok', version: '1.18.28'
+
+    testImplementation group: 'com.fasterxml.jackson.dataformat', name: 'jackson-dataformat-yaml', version: '2.15.2'
+
+    testImplementation 'org.testng:testng:7.4.0'
+    testImplementation 'org.seleniumhq.selenium:selenium-java:3.141.59'
+    testImplementation 'io.github.bonigarcia:webdrivermanager:5.0.0'
+}
+
+task runTests(type: Test) {
+    useTestNG() {
+        suites 'build/resources/test/suites/testng-suite.xml'
+        //set TestNG output dir
+        outputDirectory = file("$project.buildDir//testngOutput")
+        //required to turn on TestNG reports
+        useDefaultListeners = true
+    }
+
+    testLogging {
+        exceptionFormat = 'full'
+        events 'started', 'passed', 'skipped', 'failed'
+    }
+}
