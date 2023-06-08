@@ -5,6 +5,7 @@ import com.test.travlopia.utility.TestProperties;
 import io.github.bonigarcia.wdm.WebDriverManager;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
+import org.openqa.selenium.firefox.FirefoxOptions;
 import org.openqa.selenium.remote.RemoteWebDriver;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -45,7 +46,7 @@ public class BaseTest {
         System.out.println(testProperties.getUrl());
         //driver = WebDriverManager.getInstance(testProperties.getBrowserProperty().getName()).create();
 
-        driver = new RemoteWebDriver(new URL("http://localhost:4444/wd/hub"), new ChromeOptions());
+        driver = new RemoteWebDriver(new URL("http://localhost:4444/wd/hub"), new FirefoxOptions());
         System.out.println(driver == null);
         System.out.println(driver);
         driver.get(testProperties.getUrl());
