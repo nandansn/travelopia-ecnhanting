@@ -38,9 +38,10 @@ public class BaseTest {
 
     public void loadDriver() {
         System.out.println("load driver");
+        System.out.println(testProperties.getUrl());
         driver = WebDriverManager.getInstance(testProperties.getBrowserProperty().getName()).create();
         System.out.println(driver == null);
-        driver.get("https://www.enchantingtravels.com");
+        System.out.println(driver);
         logger.info("driver loaded");
     }
 
