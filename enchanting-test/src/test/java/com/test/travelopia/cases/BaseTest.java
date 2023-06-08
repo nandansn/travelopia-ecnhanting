@@ -45,6 +45,8 @@ public class BaseTest {
     }
 
     protected void openApp() {
+        loadTestProperties();
+        loadDriver();
         driver.get(testProperties.getUrl());
     }
 }
