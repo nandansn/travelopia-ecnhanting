@@ -20,11 +20,6 @@ public class BaseTest {
 
     WebDriver driver;
 
-    {
-        loadTestProperties();
-        loadDriver();
-    }
-
 
     public void loadTestProperties() {
         try {
@@ -43,14 +38,13 @@ public class BaseTest {
 
     public void loadDriver() {
         System.out.println("load driver");
-
         driver = WebDriverManager.getInstance(testProperties.getBrowserProperty().getName()).create();
         System.out.println(driver == null);
         logger.info("driver loaded");
     }
 
     protected void openApp() {
-        //loadDriver();
+
         if (driver == null) {
             logAndFail(new Exception("Driver not loaded"));
         }

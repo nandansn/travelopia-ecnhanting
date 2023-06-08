@@ -12,7 +12,7 @@ public class DemoTest extends BaseTest {
         System.out.println("before test");
         loadTestProperties();
         loadDriver();
-       openApp();
+        openApp();
     }
 
     @Test
