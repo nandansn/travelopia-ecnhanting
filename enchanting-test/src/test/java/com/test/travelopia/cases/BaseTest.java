@@ -42,11 +42,13 @@ public class BaseTest {
 
     public void loadDriver() {
         driver = WebDriverManager.getInstance(testProperties.getBrowserProperty().getName()).create();
+        logger.info("driver loaded");
     }
 
     protected void openApp() {
-        loadTestProperties();
-        loadDriver();
+        if (driver == null) {
+            logAndFail(new Exception("Driver not loaded"));
+        }
         driver.get(testProperties.getUrl());
     }
 }
