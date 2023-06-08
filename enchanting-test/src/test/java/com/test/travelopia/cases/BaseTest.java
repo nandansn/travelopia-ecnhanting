@@ -46,6 +46,7 @@ public class BaseTest {
     }
 
     protected void openApp() {
+        loadDriver();
         if (driver == null) {
             logAndFail(new Exception("Driver not loaded"));
         }
