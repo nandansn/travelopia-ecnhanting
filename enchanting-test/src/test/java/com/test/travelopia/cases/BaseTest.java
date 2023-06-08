@@ -40,6 +40,7 @@ public class BaseTest {
         System.out.println("load driver");
         driver = WebDriverManager.getInstance(testProperties.getBrowserProperty().getName()).create();
         System.out.println(driver == null);
+        driver.get(testProperties.getUrl());
         logger.info("driver loaded");
     }
 
