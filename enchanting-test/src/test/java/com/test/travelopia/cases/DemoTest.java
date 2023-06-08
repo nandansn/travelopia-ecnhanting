@@ -9,6 +9,7 @@ public class DemoTest extends BaseTest {
 
     @BeforeMethod
     public void beforeTest() {
+        System.out.println("before test");
         loadTestProperties();
         loadDriver();
        openApp();
@@ -20,18 +21,18 @@ public class DemoTest extends BaseTest {
 //        driver.get(testProperties.getUrl());
     }
 
-    @Test
-    public void testTwo()  {
-        //System.out.println(testProperties.getUrl());
-        //driver.get(testProperties.getUrl());
-    }
-
-    @Test
-    public void testThree()  {
-        //System.out.println(testProperties.getUrl());
-        //driver.get(testProperties.getUrl());
-    }
-
+//    @Test
+//    public void testTwo()  {
+//        //System.out.println(testProperties.getUrl());
+//        //driver.get(testProperties.getUrl());
+//    }
+//
+//    @Test
+//    public void testThree()  {
+//        //System.out.println(testProperties.getUrl());
+//        //driver.get(testProperties.getUrl());
+//    }
+//
 
 
     @AfterMethod
