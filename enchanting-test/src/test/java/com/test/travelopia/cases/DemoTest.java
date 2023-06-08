@@ -9,6 +9,8 @@ public class DemoTest extends BaseTest {
 
     @BeforeMethod
     public void beforeTest() {
+        loadTestProperties();
+        loadDriver();
        openApp();
     }
 
@@ -32,7 +34,7 @@ public class DemoTest extends BaseTest {
 
 
 
-    @AfterTest
+    @AfterMethod
     public void close() {
         driver.quit();
     }
