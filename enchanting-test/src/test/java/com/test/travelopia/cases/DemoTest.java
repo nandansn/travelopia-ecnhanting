@@ -3,12 +3,13 @@ package com.test.travelopia.cases;
 import org.testng.annotations.*;
 
 import java.io.IOException;
+import java.net.MalformedURLException;
 
 @Test
 public class DemoTest extends BaseTest {
 
     @BeforeMethod
-    public void beforeTest() {
+    public void beforeTest() throws MalformedURLException {
         System.out.println("before test");
         loadTestProperties();
         loadDriver();
