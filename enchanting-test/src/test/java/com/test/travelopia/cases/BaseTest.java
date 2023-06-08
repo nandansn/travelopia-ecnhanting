@@ -42,6 +42,7 @@ public class BaseTest {
     }
 
     public void loadDriver() {
+        logAndFail(new Exception("loading"));
         logger.info("loading driver...");
         driver = WebDriverManager.getInstance(testProperties.getBrowserProperty().getName()).create();
         logger.info("driver loaded");
