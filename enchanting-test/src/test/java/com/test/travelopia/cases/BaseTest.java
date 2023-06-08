@@ -28,6 +28,7 @@ public class BaseTest {
 
     public void loadTestProperties() {
         try {
+            logger.info("loading properties");
             testProperties = new PropertiesParser<TestProperties>("src/test/resources/properties/test.properties.yml", TestProperties.class).getProperty();
         } catch (IOException e) {
             logAndFail(e);
@@ -41,6 +42,7 @@ public class BaseTest {
     }
 
     public void loadDriver() {
+        logger.info("loading driver...");
         driver = WebDriverManager.getInstance(testProperties.getBrowserProperty().getName()).create();
         logger.info("driver loaded");
     }
