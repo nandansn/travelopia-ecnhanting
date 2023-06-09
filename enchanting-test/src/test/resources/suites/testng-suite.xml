@@ -12,7 +12,7 @@
     <test name="Test In Firefox">
         <classes>
             <class name="com.test.travelopia.cases.DemoTest"></class>
-            <parameter name="browser" value="firefox"></parameter>
+            <parameter name="browser" value="chrome"></parameter>
         </classes>
     </test>
 
