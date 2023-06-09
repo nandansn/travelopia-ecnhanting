@@ -1,5 +1,7 @@
 package com.test.travelopia.cases;
 
+import com.test.travelopia.flows.HomeFlow;
+import org.openqa.selenium.WebDriver;
 import org.testng.annotations.*;
 
 import java.io.IOException;
@@ -8,36 +10,38 @@ import java.net.MalformedURLException;
 @Test
 public class DemoTest extends BaseTest {
 
+    WebDriver driver;
+
+
     @BeforeMethod
-    public void beforeTest() throws MalformedURLException {
-        System.out.println("before test");
-        loadTestProperties();
-        loadDriver();
-        //openApp();
+    @Override
+    public void createdriver() {
+        this.driver = driver();
+    }
+
+
+    @Test
+    public void testOne() {
+        HomeFlow homeFlow = new HomeFlow(driver, testProperties.getUrl());
+        homeFlow.clickBlog();
     }
 
     @Test
-    public void testOne()  {
-        //System.out.println(testProperties.getUrl());
-//        driver.get(testProperties.getUrl());
+    public void testTwo() {
+        HomeFlow homeFlow = new HomeFlow(driver, testProperties.getUrl());
+        homeFlow.clickBlog();
     }
 
-//    @Test
-//    public void testTwo()  {
-//        //System.out.println(testProperties.getUrl());
-//        //driver.get(testProperties.getUrl());
-//    }
-//
-//    @Test
-//    public void testThree()  {
-//        //System.out.println(testProperties.getUrl());
-//        //driver.get(testProperties.getUrl());
-//    }
-//
+    @Test
+    public void testThree() {
+        HomeFlow homeFlow = new HomeFlow(driver, testProperties.getUrl());
+        homeFlow.clickBlog();
+    }
 
 
     @AfterMethod
-    public void close() {
-        driver.quit();
+    @Override
+    public void closeDriver() {
+        this.driver.quit();
     }
 }

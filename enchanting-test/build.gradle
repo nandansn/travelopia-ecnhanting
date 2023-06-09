@@ -27,6 +27,7 @@ task runTests(type: Test) {
         outputDirectory = file("$project.buildDir//testngOutput")
         //required to turn on TestNG reports
         useDefaultListeners = true
+        systemProperty 'test.environment', System.getProperty('test.environment')
     }
 
     testLogging {

@@ -6,7 +6,14 @@ public class BrowserProperty {
     @JsonProperty("name")
     private String name;
 
+    @JsonProperty("maximize-window")
+    private boolean isMaximize;
+
     public String getName() {
         return name;
+    }
+
+    public boolean isMaximize() {
+        return isMaximize;
     }
 }

@@ -1,6 +1,8 @@
 package com.test.travelopia.cases;
 
+import com.test.travlopia.utility.DriverUtility;
 import com.test.travlopia.utility.PropertiesParser;
+import com.test.travlopia.utility.TestContext;
 import com.test.travlopia.utility.TestProperties;
 import io.github.bonigarcia.wdm.WebDriverManager;
 import org.openqa.selenium.WebDriver;
@@ -17,47 +19,30 @@ import java.net.URL;
 import java.sql.DriverManager;
 
 
-public class BaseTest {
+abstract public class BaseTest {
 
     Logger logger = LoggerFactory.getLogger(this.getClass());
 
     TestProperties testProperties;
 
-    WebDriver driver;
+
+    String testPropertyPath = "src/test/resources/properties/test.properties.yml";
 
 
-    public void loadTestProperties() {
-        try {
-            logger.info("loading properties");
-            testProperties = new PropertiesParser<TestProperties>("src/test/resources/properties/test.properties.yml", TestProperties.class).getProperty();
-        } catch (IOException e) {
-            logAndFail(e);
-        }
-    }
 
-    public void logAndFail(Exception e) {
-        logger.error(e.getMessage());
-        e.printStackTrace();
-        Assert.fail(e.getMessage());
-    }
 
-    public void loadDriver() throws MalformedURLException {
-        System.out.println("load driver");
-        System.out.println(testProperties.getUrl());
-        //driver = WebDriverManager.getInstance(testProperties.getBrowserProperty().getName()).create();
+   public WebDriver driver() {
+       TestContext testContext = new TestContext(testPropertyPath);
+       testContext.setProperties();
+       this.testProperties = testContext.getProperties();
+       WebDriver driver = DriverUtility.getDriver(testProperties);
+       if (this.testProperties.getBrowserProperty().isMaximize()) {
+           driver.manage().window().maximize();
+       }
 
-        driver = new RemoteWebDriver(new URL("http://localhost:4444/wd/hub"), new FirefoxOptions());
-        System.out.println(driver == null);
-        System.out.println(driver);
-        driver.get(testProperties.getUrl());
-        logger.info("driver loaded");
-    }
+       return driver;
+   }
 
-    protected void openApp() {
-
-        if (driver == null) {
-            logAndFail(new Exception("Driver not loaded"));
-        }
-        driver.get(testProperties.getUrl());
-    }
+  abstract public void createdriver();
+   abstract public void closeDriver();
 }
