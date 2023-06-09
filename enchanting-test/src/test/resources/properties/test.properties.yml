@@ -1,16 +1,21 @@
 app_url: "https://www.enchantingtravels.com"
 
-browser:
-  name: "chrome"
-  maximize-window: True
+#browser:
+#  name: "chrome"
+
 
 environments:
   - name: local
     browsers:
-      - chrome
-      - firefox
+      - name: "chrome"
+        maximize-window: True
+#      - name: "firefox"
+#        maximize-window: True
   - name: remote
     browsers:
-      - chrome
-      - firefox
+      - name: "chrome"
+        maximize-window: True
+      - name: "firefox"
+        maximize-window: True
+
     hub: http://localhost:4444/wd/hub

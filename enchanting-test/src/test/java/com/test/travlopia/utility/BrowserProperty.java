@@ -16,4 +16,9 @@ public class BrowserProperty {
     public boolean isMaximize() {
         return isMaximize;
     }
+
+
+    public void setName(String name) {
+        this.name = name;
+    }
 }

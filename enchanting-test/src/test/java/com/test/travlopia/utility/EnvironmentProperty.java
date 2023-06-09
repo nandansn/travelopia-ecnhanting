@@ -10,13 +10,21 @@ public class EnvironmentProperty {
     String name;
 
     @JsonProperty("browsers")
-    List<String> browsers;
+    List<BrowserProperty> browsers;
 
     @JsonProperty("hub")
     String hubUrl;
 
 
-    public List<String> getBrowsers() {
+    public String getName() {
+        return name;
+    }
+
+    public String getHubUrl() {
+        return hubUrl;
+    }
+
+    public List<BrowserProperty> getBrowsers() {
         return browsers;
     }
 }

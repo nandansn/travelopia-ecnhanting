@@ -9,9 +9,6 @@ import java.util.List;
 
 public class TestProperties  extends Properties{
 
-    @JsonProperty("browser")
-    BrowserProperty browserProperty;
-
     @JsonProperty("app_url")
     String url;
 
@@ -20,10 +17,6 @@ public class TestProperties  extends Properties{
 
     public String getUrl() {
         return url;
-    }
-
-    public BrowserProperty getBrowserProperty() {
-        return browserProperty;
     }
 
     public List<EnvironmentProperty> getEnvironmentProperty() {

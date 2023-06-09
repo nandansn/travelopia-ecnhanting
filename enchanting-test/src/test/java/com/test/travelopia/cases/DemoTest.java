@@ -8,15 +8,17 @@ import java.io.IOException;
 import java.net.MalformedURLException;
 
 @Test
+
 public class DemoTest extends BaseTest {
 
     WebDriver driver;
 
 
-    @BeforeMethod
+    @BeforeTest
+    @Parameters("browser")
     @Override
-    public void createdriver() {
-        this.driver = driver();
+    public void createdriver(String browser) {
+        this.driver = driver(browser);
     }
 
 
@@ -39,7 +41,7 @@ public class DemoTest extends BaseTest {
     }
 
 
-    @AfterMethod
+    @AfterTest
     @Override
     public void closeDriver() {
         this.driver.quit();

@@ -30,19 +30,25 @@ abstract public class BaseTest {
 
 
 
+    public WebDriver driver(String browserName) {
+        loadProperties();
+        WebDriver driver = null;
+        try {
+            driver = DriverUtility.getDriver(testProperties, browserName);
+        } catch (MalformedURLException e) {
+            e.printStackTrace();
+            Assert.fail("Driver Creation failed");
+        }
 
-   public WebDriver driver() {
-       TestContext testContext = new TestContext(testPropertyPath);
-       testContext.setProperties();
-       this.testProperties = testContext.getProperties();
-       WebDriver driver = DriverUtility.getDriver(testProperties);
-       if (this.testProperties.getBrowserProperty().isMaximize()) {
-           driver.manage().window().maximize();
-       }
+        return driver;
+    }
 
-       return driver;
-   }
+    private void loadProperties() {
+        TestContext testContext = new TestContext(testPropertyPath);
+        testContext.setProperties();
+        this.testProperties = testContext.getProperties();
+    }
 
-  abstract public void createdriver();
+    abstract public void createdriver(String browser);
    abstract public void closeDriver();
 }

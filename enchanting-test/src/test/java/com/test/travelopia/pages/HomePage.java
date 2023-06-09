@@ -13,8 +13,6 @@ public class HomePage {
 
     public HomePage(WebDriver driver) {
         PageFactory.initElements(driver, this);
-        ElementLocatorFactory
-        PageFactory.initElements();
     }
 
     public WebElement getNavBlog() {

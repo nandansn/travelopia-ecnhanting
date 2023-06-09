@@ -1,12 +1,14 @@
 <!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
 <suite name="Enchanting Suite" parallel="tests">
     <test name="Test In Chrome">
+        <parameter name="browser" value="chrome"></parameter>
         <classes>
             <class name="com.test.travelopia.cases.DemoTest" />
         </classes>
     </test>
 
     <test name="Test In Firefox">
+        <parameter name="browser" value="firefox"></parameter>
         <classes>
             <class name="com.test.travelopia.cases.DemoTest"></class>
         </classes>
