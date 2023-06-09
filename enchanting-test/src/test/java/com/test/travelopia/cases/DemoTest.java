@@ -8,7 +8,6 @@ import java.io.IOException;
 import java.net.MalformedURLException;
 
 @Test
-
 public class DemoTest extends BaseTest {
 
     WebDriver driver;
