@@ -4,6 +4,7 @@ import io.github.bonigarcia.wdm.WebDriverManager;
 import org.openqa.selenium.MutableCapabilities;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
+import org.openqa.selenium.firefox.FirefoxOptions;
 import org.openqa.selenium.remote.RemoteWebDriver;
 
 import java.net.MalformedURLException;
@@ -26,7 +27,7 @@ public class DriverUtility {
             driver = getLocalDriver(browserProperty.getName());
 
 
-            driver.manage().window().maximize();
+
         } else if (name.equals("remote")) {
             EnvironmentProperty environmentProperty = testProperties.getEnvironmentProperty()
                     .stream()
@@ -43,10 +44,16 @@ public class DriverUtility {
 
             if (browserProperty.getName().equals("chrome")) {
                 mutableCapabilities = new ChromeOptions();
+            } else if (browserProperty.getName().equals("firefox")) {
+                mutableCapabilities = new FirefoxOptions();
             }
 
             driver = getRemoteDriver(environmentProperty.getHubUrl(), mutableCapabilities);
+        } else {
+            throw new RuntimeException();
         }
+
+        driver.manage().window().maximize();
 
         return driver;
 
