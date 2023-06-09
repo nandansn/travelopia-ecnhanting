@@ -1,17 +1,18 @@
 <!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
-<suite name="Enchanting Suite" parallel="classes" thread-count="2">
+<suite name="Enchanting Suite">
 
-    <test name="Test In Chrome">
+    <test name="Test In Chrome" parallel="tests" thread-count="1">
         <parameter name="browser" value="chrome"></parameter>
         <classes>
             <class name="com.test.travelopia.cases.DemoTest" />
         </classes>
     </test>
 
-    <test name="Test In Firefox">
+    <test name="Test In Firefox" parallel="tests" thread-count="1">
         <parameter name="browser" value="firefox"></parameter>
         <classes>
             <class name="com.test.travelopia.cases.DemoTest"></class>
         </classes>
     </test>
+
 </suite>
