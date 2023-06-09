@@ -28,6 +28,7 @@ task runTests(type: Test) {
         //required to turn on TestNG reports
         useDefaultListeners = true
         systemProperty 'test.environment', System.getProperty('test.environment')
+        systemProperty 'browser', System.getProperty('browser')
     }
 
     testLogging {

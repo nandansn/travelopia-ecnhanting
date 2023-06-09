@@ -17,6 +17,8 @@ public class DemoTestFireFox extends BaseTest {
     @Parameters("browser")
     @Override
     public void createdriver(String browser) {
+        browser = System.getProperty("browser");
+
         this.driver = driver(browser);
     }
 
