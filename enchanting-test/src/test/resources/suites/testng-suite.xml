@@ -9,7 +9,7 @@
         </classes>
     </test>
 
-    <test name="Test In Firefox Suites">
+    <test name="Test In Firefox">
         <classes>
             <class name="com.test.travelopia.cases.DemoTestFireFox"></class>
 <!--            <parameter name="browser" value="firefox"></parameter>-->
